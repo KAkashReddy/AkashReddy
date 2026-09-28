@@ -1,14 +1,11 @@
-# Akash Reddy — Software Developer Portfolio
+# Akash Reddy — Software Developer
 
-A responsive developer portfolio with a cinematic, skippable launch-film introduction. Built as a static site with HTML, CSS, and JavaScript.
+A nine-chapter, scroll-led portfolio about software, data, and applied AI.
+
+The visual story uses custom procedural 3D scenes rendered with Three.js r186. The site is static HTML, CSS, and JavaScript, with an animated CSS fallback if WebGL is unavailable or reduced motion is preferred.
 
 **Live site:** https://kakashreddy.github.io/AkashReddy/
 
-The portfolio includes Akash's education, skills, public profile links, creative interests, and project summaries for the AI Resume Analyzer, Myclipper, Global EV Analysis, and World Wide Energy Consumption.
-
 ## Run locally
 
-Open `index.html` in a browser. All site files are in the repository root, so no build step is required.
-
-
-
+Serve this folder with any local HTTP server, then open its address in a browser. The 3D module loads from the pinned Three.js CDN version; the rest of the portfolio works as static assets.
