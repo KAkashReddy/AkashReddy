@@ -38,8 +38,10 @@
   // Browser scroll restoration can otherwise drop the visitor into its middle.
   const root = document.documentElement;
   const previousScrollBehavior = root.style.scrollBehavior;
+  const hasScrollRestoration = 'scrollRestoration' in history;
+  const previousScrollRestoration = hasScrollRestoration ? history.scrollRestoration : null;
   root.style.scrollBehavior = 'auto';
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (hasScrollRestoration) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
   root.style.scrollBehavior = previousScrollBehavior;
 
@@ -59,6 +61,7 @@
     site.inert = false;
     window.removeEventListener('scroll', scheduleUpdate);
     window.removeEventListener('resize', scheduleUpdate);
+    if (hasScrollRestoration) history.scrollRestoration = previousScrollRestoration;
 
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
