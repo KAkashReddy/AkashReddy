@@ -74,7 +74,8 @@
 
   const updateFilm = () => {
     if (completed) return;
-    const progress = clamp(-film.getBoundingClientRect().top / film.offsetHeight);
+    const pinnedScrollDistance = Math.max(1, film.offsetHeight - stage.offsetHeight);
+    const progress = clamp(-film.getBoundingClientRect().top / pinnedScrollDistance);
     const kicker = ramp(progress, 0.015, 0.13);
     const caption = ramp(progress, 0.28, 0.44);
     const exit = ramp(progress, 0.71, 0.98);
@@ -99,7 +100,7 @@
     stage.style.setProperty('--film-stage-opacity', `${(1 - exit * 0.08).toFixed(3)}`);
     stage.style.setProperty('--film-progress-width', `${(progress * 100).toFixed(2)}%`);
 
-    if (progress >= 0.985) {
+    if (progress >= 1) {
       completeIntro();
       return;
     }
