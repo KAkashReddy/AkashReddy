@@ -34,6 +34,15 @@
     return;
   }
 
+  // Always begin the first scroll-driven pass at the opening's first frame.
+  // Browser scroll restoration can otherwise drop the visitor into its middle.
+  const root = document.documentElement;
+  const previousScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  root.style.scrollBehavior = previousScrollBehavior;
+
   const clamp = (value) => Math.min(1, Math.max(0, value));
   const easeOut = (value) => 1 - Math.pow(1 - clamp(value), 3);
   const ramp = (progress, start, end) => easeOut((progress - start) / (end - start));
