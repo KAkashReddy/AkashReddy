@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f1f0ea">
+  <meta name="theme-color" content="#0c0f13">
   <meta name="description" content="K Akash Reddy, Software Developer and Information Science Engineering graduate based in Bangalore, Karnataka, India.">
   <title>Akash Reddy | Software Developer</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -11,10 +11,7 @@
     (() => {
       let savedTheme;
       try { savedTheme = localStorage.getItem('portfolio-theme'); } catch {}
-      const systemPrefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-      const theme = savedTheme === 'dark' || savedTheme === 'light'
-        ? savedTheme
-        : systemPrefersDark ? 'dark' : 'light';
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
       document.documentElement.dataset.theme = theme;
       document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0c0f13' : '#f5f4ef');
     })();
@@ -61,7 +58,7 @@
         <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a class="nav-contact" href="#contact">Connect <span aria-hidden="true">↗</span></a>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Use dark mood" title="Use dark mood">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Use light mood" title="Use light mood">
           <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2.5 12h2m15 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
           <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M19.5 15.1A8 8 0 0 1 8.9 4.5 8.2 8.2 0 1 0 19.5 15.1Z"></path><path d="m16.8 4.5.4 1.2 1.2.4-1.2.4-.4 1.2-.4-1.2-1.2-.4 1.2-.4.4-1.2Z"></path></svg>
         </button>
